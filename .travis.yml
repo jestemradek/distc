@@ -23,5 +23,5 @@ before_script:
 
 script:
   - npm run test:unit
-  - ./node_modules/.bin/cypress run --recording false
+  - ./node_modules/.bin/cypress run --record false
   - npm run lint
