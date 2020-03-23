@@ -8,7 +8,7 @@ This is a frontend part. You will need a backend to use the frontend. Backend is
 
 ## Requirements
 
-- Node.js 12;
+- Node.js 12
 - Vue CLI
 
 ## Installation
