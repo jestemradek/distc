@@ -4,7 +4,7 @@
 
 The "DistC" is a demonstration application of a distance calculator between two geographical points into Vue.js framework.
 
-This is a frontend part. You will need a backend to use the frontend. Backend is avaible [here][1]
+This is a frontend part. You will need a backend to use the frontend. Backend is avaible [here][1].
 
 ## Requirements
 
@@ -13,7 +13,7 @@ This is a frontend part. You will need a backend to use the frontend. Backend is
 
 ## Installation
 
-Run the backend. Instruction is available [here][1]
+Run the backend. Instruction is available [here][1].
 
 Download project to your PC and install depedencies:
 
