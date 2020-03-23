@@ -1,19 +1,20 @@
-language:
-  - node_js
-  - php
-node_js: lts/*
-php: 7.3
+language: php
+php:
+  - 7.3
 
 addons:
   apt:
     update: true
 
+before_install:
+  - nvm install 6.10
+  - npm install -g vue-cli
+
 install:
   - npm install
-  - npm install -g vue-cli
   - git clone https://github.com/jestemradek/distc-api.git
 
-  before_script:
+before_script:
   - php -S localhost:8000 -t distc-api/public > /dev/null 2>&1&
 
 script:
