@@ -5,13 +5,17 @@
       <p>
         Enter the data to calculate the distance between two geographical
         points.
-        <a
-          href="https://en.wikipedia.org/wiki/Decimal_degrees"
-        >Decimal format</a>
+        <a href="https://en.wikipedia.org/wiki/Decimal_degrees"
+          >Decimal format</a
+        >
         is required.
       </p>
-      <b-form @submit="onSubmit" @reset="onReset">
-        <b-form-group id="input-group-1" label="Latitude from:" label-for="input-1">
+      <b-form id="distc-form" @submit="onSubmit" @reset="onReset">
+        <b-form-group
+          id="input-group-1"
+          label="Latitude from:"
+          label-for="input-1"
+        >
           <b-form-input
             id="input-1"
             v-model="form.latitudeFrom"
@@ -24,10 +28,16 @@
             :state="latitudeValidate(form.latitudeFrom)"
             aria-describedby="input-live-help input-live-feedback"
           ></b-form-input>
-          <b-form-invalid-feedback id="input-live-feedback">{{ latitudeMsg }}</b-form-invalid-feedback>
+          <b-form-invalid-feedback id="input-live-feedback">{{
+            latitudeMsg
+          }}</b-form-invalid-feedback>
         </b-form-group>
 
-        <b-form-group id="input-group-2" label="Longitude from:" label-for="input-2">
+        <b-form-group
+          id="input-group-2"
+          label="Longitude from:"
+          label-for="input-2"
+        >
           <b-form-input
             id="input-2"
             v-model="form.longitudeFrom"
@@ -40,10 +50,16 @@
             :state="longitudeValidate(form.longitudeFrom)"
             aria-describedby="input-live-help input-live-feedback"
           ></b-form-input>
-          <b-form-invalid-feedback id="input-live-feedback">{{ longitudeMsg }}</b-form-invalid-feedback>
+          <b-form-invalid-feedback id="input-live-feedback">{{
+            longitudeMsg
+          }}</b-form-invalid-feedback>
         </b-form-group>
 
-        <b-form-group id="input-group-3" label="Latitude to:" label-for="input-3">
+        <b-form-group
+          id="input-group-3"
+          label="Latitude to:"
+          label-for="input-3"
+        >
           <b-form-input
             id="input-3"
             v-model="form.latitudeTo"
@@ -56,10 +72,16 @@
             :state="latitudeValidate(form.latitudeTo)"
             aria-describedby="input-live-help input-live-feedback"
           ></b-form-input>
-          <b-form-invalid-feedback id="input-live-feedback">{{ latitudeMsg }}</b-form-invalid-feedback>
+          <b-form-invalid-feedback id="input-live-feedback">{{
+            latitudeMsg
+          }}</b-form-invalid-feedback>
         </b-form-group>
 
-        <b-form-group id="input-group-4" label="Longitude to:" label-for="input-4">
+        <b-form-group
+          id="input-group-4"
+          label="Longitude to:"
+          label-for="input-4"
+        >
           <b-form-input
             id="input-4"
             v-model="form.longitudeTo"
@@ -72,7 +94,9 @@
             :state="longitudeValidate(form.longitudeTo)"
             aria-describedby="input-live-help input-live-feedback"
           ></b-form-input>
-          <b-form-invalid-feedback id="input-live-feedback">{{ longitudeMsg }}</b-form-invalid-feedback>
+          <b-form-invalid-feedback id="input-live-feedback">{{
+            longitudeMsg
+          }}</b-form-invalid-feedback>
         </b-form-group>
         <b-form-group label="Calculating method:">
           <b-form-radio-group
@@ -86,13 +110,47 @@
         <b-button class="mr-3" type="submit" variant="primary">Submit</b-button>
         <b-button type="reset" variant="danger">Reset</b-button>
       </b-form>
-      <b-card class="mt-3" header="Result" v-if="result">
-        Distance [km]:
-        <strong>{{ result.distanceKilometers }}</strong>
-        <br />Distance [m]:
-        <strong>{{ result.distanceMeters }}</strong>
-        <br />Calculating method:
-        <strong>{{ result.calculatingMethod == "vincenty" ? "Vincenty's" : "Haversine" }}</strong>
+      <b-card class="mt-5" header="Result" v-if="result">
+        <b-form-group
+          id="input-group-5"
+          label="Distance [km]:"
+          label-for="input-5"
+        >
+          <b-form-input
+            id="input-5"
+            :value="result.distanceKilometers"
+            type="text"
+            readonly
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group
+          id="input-group-6"
+          label="Distance [m]:"
+          label-for="input-6"
+        >
+          <b-form-input
+            id="input-6"
+            :value="result.distanceMeters"
+            type="text"
+            readonly
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group
+          id="input-group-7"
+          label="Calculating method:"
+          label-for="input-7"
+        >
+          <b-form-input
+            id="input-7"
+            :value="
+              result.calculatingMethod == 'vincenty'
+                ? 'Vincenty\'s'
+                : 'Haversine'
+            "
+            type="text"
+            readonly
+          ></b-form-input>
+        </b-form-group>
       </b-card>
     </div>
   </b-container>
@@ -120,14 +178,14 @@ export default {
   },
   methods: {
     latitudeValidate(value) {
-      if (value === null) {
+      if (value == null || value == "") {
         return null;
       } else {
         return value >= -90 && value <= 90 ? true : false;
       }
     },
     longitudeValidate(value) {
-      if (value === null) {
+      if (value == null || value == "") {
         return null;
       } else {
         return value >= -180 && value <= 180 ? true : false;
