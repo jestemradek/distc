@@ -8,6 +8,7 @@ addons:
   apt:
     packages:
       - libgconf-2-4
+      - php-cli
 
 install:
   - npm install -g vue-cli
