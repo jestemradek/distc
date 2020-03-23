@@ -3,7 +3,13 @@ node_js:
   - 12
 php:
   - 7.3
-before_install:
+
+addons:
+  apt:
+    packages:
+    - libgconf-2-4
+
+    before_install:
   - npm install -g vue-cli
 
 install:
@@ -11,6 +17,7 @@ install:
 
 before_script:
   - git clone https://github.com/jestemradek/distc-api.git
+  - php -v
   - php -S localhost:8000 -t distc-api/public > /dev/null 2>&1&
 
 script:
