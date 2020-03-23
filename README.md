@@ -31,4 +31,4 @@ To run API enter this command and access the application in your browser at the 
 $ npm run serve
 ```
 
-[1]: https://github.com/jestemradek/distc
+[1]: https://github.com/jestemradek/distc-api
