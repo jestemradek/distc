@@ -1,0 +1,17 @@
+language:
+  - node_js
+  - php
+php:
+  - 7.3
+node_js: lts/*
+
+addons:
+  apt:
+    update: true
+
+install:
+  - git clone git@github.com:jestemradek/distc-api.git
+
+script:
+  - npm run test:unit
+  - npm run test:e2e
