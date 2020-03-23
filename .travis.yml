@@ -7,12 +7,10 @@ php:
 addons:
   apt:
     packages:
-    - libgconf-2-4
-
-    before_install:
-  - npm install -g vue-cli
+      - libgconf-2-4
 
 install:
+  - npm install -g vue-cli
   - npm install
 
 before_script:
