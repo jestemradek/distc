@@ -1,34 +1,34 @@
-# distc
+# DistC - GPS Distance Calculator
 
-## Project setup
-```
-npm install
-```
+[![Build Status](https://travis-ci.org/jestemradek/distc.svg?branch=master)](https://travis-ci.org/github/jestemradek/distc)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+The "DistC" is a demonstration application of a distance calculator between two geographical points into Vue.js framework.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+This is a frontend part. You will need a backend to use the frontend. Backend is avaible [here][1]
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## Requirements
 
-### Run your end-to-end tests
-```
-npm run test:e2e
+- Node.js 12;
+- Vue CLI
+
+## Installation
+
+Run the backend. Instruction is available [here][1]
+
+Download project to your PC and install depedencies:
+
+```bash
+$ git clone https://github.com/jestemradek/distc.git
+$ cd distc
+$ npm install
 ```
 
-### Lints and fixes files
-```
-npm run lint
+## Usage
+
+To run API enter this command and access the application in your browser at the given URL (http://localhost:8080 by default):
+
+```bash
+$ npm run serve
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[1]: https://github.com/jestemradek/distc
