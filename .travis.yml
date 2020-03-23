@@ -1,12 +1,17 @@
 language: node_js
 node_js:
   - 12
-
+php:
+  - 7.3
 before_install:
   - npm install -g vue-cli
 
 install:
   - npm install
+
+before_script:
+  - git clone https://github.com/jestemradek/distc-api.git
+  - php -S localhost:8000 -t distc-api/public > /dev/null 2>&1&
 
 script:
   - npm run test:unit
